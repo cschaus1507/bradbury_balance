@@ -1,13 +1,16 @@
 :root{
-  --purple:#4B1B6A;        /* Roy-Hart-ish purple */
-  --purple2:#6B2A8E;
+  --fire-dark:#7F1D1D;
+  --fire-mid:#DC2626;
+  --fire-bright:#F97316;
+  --fire-glow:#FBBF24;
+
   --white:#FFFFFF;
   --ink:#111827;
-  --muted:#6B7280;
-  --bg:#0b0610;
-  --card:#12081c;
-  --border:rgba(255,255,255,.10);
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --muted:rgba(255,255,255,.70);
+  --bg:#0b0505;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
   --radius:18px;
 }
 
@@ -16,9 +19,10 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   background:
-    radial-gradient(1200px 600px at 20% 0%, rgba(107,42,142,.35), transparent 60%),
-    radial-gradient(900px 600px at 100% 20%, rgba(75,27,106,.35), transparent 60%),
-    linear-gradient(180deg, #08040c, #0b0610 60%, #07030a);
+    radial-gradient(1200px 500px at 10% 0%, rgba(220,38,38,.35), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(249,115,22,.30), transparent 60%),
+    radial-gradient(700px 500px at 50% 100%, rgba(127,29,29,.35), transparent 65%),
+    linear-gradient(180deg, #1a0606, #0b0505 55%, #050202);
   color: var(--white);
   min-height:100vh;
 }
@@ -89,8 +93,13 @@ a{color:inherit}
 .btn:hover{ background: rgba(255,255,255,.10); }
 .btn:active{ transform: translateY(1px); }
 .btn.primary{
-  background: linear-gradient(135deg, var(--purple), var(--purple2));
-  border-color: rgba(255,255,255,.14);
+  background: linear-gradient(
+    135deg,
+    var(--fire-dark),
+    var(--fire-mid),
+    var(--fire-bright)
+  );
+  border-color: rgba(255,255,255,.25);
 }
 .btn.ghost{
   background: transparent;
