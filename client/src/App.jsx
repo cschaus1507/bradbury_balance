@@ -179,11 +179,14 @@ export default function App() {
         <div className="brand">
           <div className="badge">RH</div>
           <div className="title">
-            <h1>Bradbury Balance App</h1>
-            <p>
-              Roy-Hart Rams • Class of 2026 — anonymous, aggregate screen-time snapshots to fuel our
-              conversations about tech, attention, and authentic life (no names, no tracking).
-            </p>
+            <h1 className="app-title">Fire in the Feed</h1>
+              <div className="app-subtitle">
+                Ms. Metz Edition • Class of 2026<br />
+                Screen-time snapshots to support our conversations about attention, technology, and authentic life.
+              </div>
+            <div className="app-tagline">
+                Track the trend. Talk about the truth.
+            </div>
           </div>
         </div>
 
