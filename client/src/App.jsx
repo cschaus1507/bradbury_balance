@@ -390,7 +390,21 @@ export default function App() {
                   <h2>Average category minutes</h2>
                   <p className="subtle">Based on optional category entries.</p>
                   <div style={{maxWidth:520}}>
-                    <Doughnut data={categoriesData} options={{ responsive: true }} />
+                    <Doughnut
+  data={categoriesData}
+  options={{
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "rgba(255,255,255,0.9)"
+        }
+      }
+    }
+  }}
+/>
+
                   </div>
                 </>
               ) : (
