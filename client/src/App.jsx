@@ -130,7 +130,12 @@ export default function App() {
       datasets: [
         {
           label: "Students",
-          data: [h.b0_2, h.b2_4, h.b4_6, h.b6_8, h.b8p]
+          data: [h.b0_2, h.b2_4, h.b4_6, h.b6_8, h.b8p],
+          // Fire palette (dark red -> bright ember)
+          backgroundColor: ["#7F1D1D", "#B91C1C", "#DC2626", "#F97316", "#FBBF24"],
+          borderColor: "rgba(255,255,255,0.25)",
+          borderWidth: 2,
+          borderRadius: 10
         }
       ]
     };
@@ -380,7 +385,22 @@ export default function App() {
                       responsive: true,
                       plugins: {
                         legend: { display: false },
-                        title: { display: false }
+                        title: { display: false },
+                        tooltip: {
+                          enabled: true,
+                          displayColors: false
+                        }
+                      },
+                      scales: {
+                        x: {
+                          ticks: { color: "rgba(255,255,255,0.90)", font: { weight: "bold" } },
+                          grid: { color: "rgba(255,255,255,0.08)" }
+                        },
+                        y: {
+                          beginAtZero: true,
+                          ticks: { color: "rgba(255,255,255,0.85)", precision: 0 },
+                          grid: { color: "rgba(255,255,255,0.08)" }
+                        }
                       }
                     }}
                   />
