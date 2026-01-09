@@ -223,3 +223,17 @@ textarea{ min-height:78px; resize: vertical; }
   text-transform: uppercase;
   color: rgba(255,255,255,.9);
 }
+@keyframes emberGlow {
+  0% {
+    background-position: 50% 0%;
+    filter: brightness(0.95);
+  }
+  50% {
+    background-position: 52% 1%;
+    filter: brightness(1.05);
+  }
+  100% {
+    background-position: 50% 0%;
+    filter: brightness(0.95);
+  }
+}
