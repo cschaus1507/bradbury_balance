@@ -47,7 +47,6 @@ export default function App() {
   const [top3, setTop3] = useState("Snapchat");
 
   const [reflection, setReflection] = useState("");
-
   const [submitMsg, setSubmitMsg] = useState(null);
 
   // dashboard state
@@ -107,6 +106,7 @@ export default function App() {
         topApps,
         reflectionText: reflection.trim() ? reflection.trim() : null
       });
+
       setSubmitMsg({ ok: true, text: "Submitted. Thanks for contributing to the class mirror 👀" });
 
       // reset a few fields lightly (keep period)
@@ -138,6 +138,7 @@ export default function App() {
 
   const categoriesData = useMemo(() => {
     if (!stats || stats.hidden) return null;
+
     const vals = [
       { k: "Social", v: stats.avg_social },
       { k: "Entertainment", v: stats.avg_entertainment },
@@ -145,24 +146,27 @@ export default function App() {
       { k: "Productivity", v: stats.avg_productivity },
       { k: "Communication", v: stats.avg_communication }
     ].map(x => ({ ...x, v: Math.max(0, Math.round(x.v || 0)) }));
+
     const total = vals.reduce((a,b) => a + b.v, 0);
     if (total === 0) return null;
+
     return {
-  labels: vals.map(x => x.k),
-  datasets: [{
-    data: vals.map(x => x.v),
-    // Bold, high-contrast colors for dark mode
-    backgroundColor: [
-      "#7C3AED", // Social (purple)
-      "#F97316", // Entertainment (orange)
-      "#22C55E", // Games (green)
-      "#06B6D4", // Productivity (cyan)
-      "#F43F5E"  // Communication (pink/red)
-    ],
-    borderColor: "rgba(255,255,255,0.25)",
-    borderWidth: 2
-  }]
-};
+      labels: vals.map(x => x.k),
+      datasets: [{
+        data: vals.map(x => x.v),
+        // Bold, high-contrast colors for dark mode
+        backgroundColor: [
+          "#7C3AED", // Social (purple)
+          "#F97316", // Entertainment (orange)
+          "#22C55E", // Games (green)
+          "#06B6D4", // Productivity (cyan)
+          "#F43F5E"  // Communication (pink/red)
+        ],
+        borderColor: "rgba(255,255,255,0.25)",
+        borderWidth: 2
+      }]
+    };
+  }, [stats]);
 
   return (
     <div className="container">
@@ -203,7 +207,7 @@ export default function App() {
           <form onSubmit={onSubmit}>
             <label>Class period</label>
             <select value={period} onChange={(e)=>setPeriod(e.target.value)}>
-              {Array.from({length: 12}, (_,i)=>i+1).map(p => (
+              {Array.from({length: 9}, (_,i)=>i+1).map(p => (
                 <option key={p} value={p}>{p}</option>
               ))}
             </select>
@@ -391,20 +395,20 @@ export default function App() {
                   <p className="subtle">Based on optional category entries.</p>
                   <div style={{maxWidth:520}}>
                     <Doughnut
-  data={categoriesData}
-  options={{
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "bottom",
-        labels: {
-          color: "rgba(255,255,255,0.9)"
-        }
-      }
-    }
-  }}
-/>
-
+                      data={categoriesData}
+                      options={{
+                        responsive: true,
+                        plugins: {
+                          legend: {
+                            position: "bottom",
+                            labels: {
+                              color: "rgba(255,255,255,0.9)",
+                              font: { size: 13, weight: "bold" }
+                            }
+                          }
+                        }
+                      }}
+                    />
                   </div>
                 </>
               ) : (
@@ -426,7 +430,6 @@ export default function App() {
                       <tr>
                         <th style={{textAlign:"left", padding:"8px 6px"}}>App</th>
                         <th style={{textAlign:"right", padding:"8px 6px"}}>Mentions</th>
-                        <th style={{textAlign:"right", padding:"8px 6px"}}>Avg minutes</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -434,7 +437,6 @@ export default function App() {
                         <tr key={a.name} style={{borderTop:"1px solid rgba(255,255,255,.08)"}}>
                           <td style={{padding:"8px 6px"}}>{a.name}</td>
                           <td style={{padding:"8px 6px", textAlign:"right"}}>{a.mentions}</td>
-                          <td style={{padding:"8px 6px", textAlign:"right"}}>{a.avg_minutes == null ? "—" : fmtMinutes(a.avg_minutes)}</td>
                         </tr>
                       ))}
                     </tbody>
