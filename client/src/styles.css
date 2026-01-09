@@ -24,9 +24,13 @@ body{
     radial-gradient(900px 600px at 90% 10%, rgba(249,115,22,.30), transparent 60%),
     radial-gradient(700px 500px at 50% 100%, rgba(127,29,29,.35), transparent 65%),
     linear-gradient(180deg, #1a0606, #0b0505 55%, #050202);
+  background-size: 120% 120%;
   color: #fff;
   min-height:100vh;
+
+  animation: emberGlow 14s ease-in-out infinite;
 }
+
 
 a{color:inherit}
 .container{
