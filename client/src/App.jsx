@@ -148,10 +148,21 @@ export default function App() {
     const total = vals.reduce((a,b) => a + b.v, 0);
     if (total === 0) return null;
     return {
-      labels: vals.map(x => x.k),
-      datasets: [{ data: vals.map(x => x.v) }]
-    };
-  }, [stats]);
+  labels: vals.map(x => x.k),
+  datasets: [{
+    data: vals.map(x => x.v),
+    // Bold, high-contrast colors for dark mode
+    backgroundColor: [
+      "#7C3AED", // Social (purple)
+      "#F97316", // Entertainment (orange)
+      "#22C55E", // Games (green)
+      "#06B6D4", // Productivity (cyan)
+      "#F43F5E"  // Communication (pink/red)
+    ],
+    borderColor: "rgba(255,255,255,0.25)",
+    borderWidth: 2
+  }]
+};
 
   return (
     <div className="container">
