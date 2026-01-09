@@ -177,7 +177,7 @@ export default function App() {
     <div className="container">
       <div className="header">
         <div className="brand">
-          <div className="badge">RH</div>
+          <div className="badge">&#128293;</div>
           <div className="title">
             <h1 className="app-title">Fire in the Feed</h1>
               <div className="app-subtitle">
